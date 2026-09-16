@@ -1,9 +1,10 @@
-mod handlers;
+pub mod boris;
 use axum::Router;
+use std::net::TcpListener;
 
 #[tokio::main]
 async fn main() {
-    let app = Router::new().nest("/boris", handlers::boris::boris_routes());
+    let app = Router::new().merge(boris::boris_routes());
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3030")
         .await
