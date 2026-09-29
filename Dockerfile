@@ -23,7 +23,7 @@ RUN julia -e 'using Pkg; Pkg.add(["CSV", "DataFrames", "Plots"]); Pkg.precompile
 ENV GWSwstype=100
 
 COPY --from=builder /build/target/release/personal-website-backend /app/server
-COPY --from=builder /build/tools/boris-cli/target/release/boris-cli /app/boris-cli
+COPY --from=builder /build/tools/boris-cli/target/release/boris-cli /app/tools/boris-cli
 
 COPY tools/boris-cli/plot.jl /app/tools/boris-cli/plot.jl
 
