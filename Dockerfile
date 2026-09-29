@@ -25,7 +25,7 @@ ENV GWSwstype=100
 COPY --from=builder /build/target/release/personal-website-backend /app/server
 COPY --from=builder /build/tools/boris-cli/target/release/boris-cli /app/boris-cli
 
-COPY tools/boris-cli/plot.jl /app/plot.jl
+COPY tools/boris-cli/plot.jl /app/tools/boris-cli/plot.jl
 
 EXPOSE 3030
 
