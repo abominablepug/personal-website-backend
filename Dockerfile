@@ -20,10 +20,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN julia -e 'using Pkg; Pkg.add(["CSV", "DataFrames", "Plots"]); Pkg.precompile()'
 
-ENV GWSwstype=100
+ENV GKSwstype=100
 
 COPY --from=builder /build/target/release/personal-website-backend /app/server
-COPY --from=builder /build/tools/boris-cli/target/release/boris-cli /app/tools/boris-cli
+COPY --from=builder /build/tools/boris-cli/target/release/boris-cli /app/tools/boris-cli/target/release/boris-cli
 
 COPY tools/boris-cli/plot.jl /app/tools/boris-cli/plot.jl
 
